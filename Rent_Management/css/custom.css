@@ -1,0 +1,452 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.table_design thead tr {
+  background-color: blue;
+  font-size: 14px;
+}
+.table_design thead tr th {
+  background-color: blue;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  text-align: center;
+  vertical-align: middle;
+}
+.table_design tbody tr td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 1024px) {
+  #hdname {
+    font-size: 14px;
+  }
+}
+
+/* .slideThree */
+.slideThree {
+  width: 80px;
+  height: 26px;
+  background: #333;
+  margin: 20px auto;
+  position: relative;
+  border-radius: 50px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5),
+    0px 1px 0px rgba(255, 255, 255, 0.2);
+}
+.slideThree:after {
+  content: "OFF";
+  color: #000;
+  position: absolute;
+  right: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+}
+.slideThree:before {
+  content: "ON";
+  color: #27ae60;
+  position: absolute;
+  left: 10px;
+  z-index: 0;
+  font: 12px/26px Arial, sans-serif;
+  font-weight: bold;
+}
+.slideThree label {
+  display: block;
+  width: 34px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 1;
+  background: #fcfff4;
+  background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.slideThree input[type="checkbox"] {
+  visibility: hidden;
+}
+.slideThree input[type="checkbox"]:checked + label {
+  left: 43px;
+}
+/* end .slideThree */
+
+/* ++++++++++++++++++++++++++++++++++++++++ */
+/* CheckBox Design Started */
+/* ++++++++++++++++++++++++++++++++++++++++ */
+
+.checkboxes:not(:empty),
+.flipBox:not(:empty),
+.flipBox_boxOuter:not(:empty),
+.flipBox_box:not(:empty),
+.flipBox_shadow:not(:empty) {
+  transform-style: preserve-3d;
+}
+
+.checkboxes {
+  color: #000;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  perspective: 750px;
+}
+.flipBox {
+  position: relative;
+  display: block;
+  text-align: left;
+  margin: 1em auto;
+  cursor: pointer;
+}
+.flipBox:active > .flipBox_boxOuter {
+  height: 25%;
+}
+.flipBox span {
+  padding-left: 1.25em;
+}
+.flipBox > input {
+  appearance: none;
+  position: fixed;
+  left: -100vmax;
+  top: -100vmax;
+}
+.flipBox > input:checked ~ .flipBox_boxOuter {
+  animation: flipBox1 1s forwards linear;
+}
+.flipBox > input:checked ~ .flipBox_boxOuter .flipBox_box {
+  animation: flipBox2 1s forwards ease-in-out;
+}
+.flipBox > input:checked ~ .flipBox_shadow {
+  animation: flipBox3 1s forwards ease-in-out;
+}
+.flipBox > input:not(:checked) ~ .flipBox_boxOuter {
+  animation: flipBox4 1s forwards linear;
+}
+.flipBox > input:not(:checked) ~ .flipBox_boxOuter .flipBox_box {
+  animation: flipBox5 1s forwards ease-in-out;
+}
+.flipBox > input:not(:checked) ~ .flipBox_shadow {
+  animation: flipBox6 1s forwards ease-in-out;
+}
+.flipBox > input:disabled ~ * {
+  cursor: not-allowed;
+}
+.flipBox > input:disabled ~ .flipBox_boxOuter {
+  height: 0%;
+}
+.flipBox > input:disabled ~ .flipBox_boxOuter .flipBox_box > div:nth-child(6) {
+  background-color: #ccc;
+}
+.flipBox
+  > input:disabled
+  ~ .flipBox_boxOuter
+  .flipBox_box
+  > div:nth-child(-n + 5),
+.flipBox > input:disabled ~ .flipBox_boxOuter ~ .flipBox_shadow {
+  display: none;
+}
+.flipBox > input:focus-visible ~ span {
+  outline: 1px #000 solid;
+  outline-offset: 0.25em;
+}
+.flipBox_boxOuter {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1em;
+  height: 1em;
+  transform-origin: top;
+  transition: height 0.25s;
+}
+.flipBox_box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1em;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+.flipBox_box > div {
+  position: absolute;
+  width: 1em;
+  box-shadow: 0 0 0.25em #000 7 inset;
+}
+.flipBox_box > div:nth-child(1) {
+  background-image: linear-gradient(green, white);
+  transform: rotateY(0deg) translateX(50%) rotateY(90deg);
+  height: 100%;
+}
+.flipBox_box > div:nth-child(2) {
+  background-image: linear-gradient(green, white);
+  transform: rotateY(90deg) translateX(50%) rotateY(90deg);
+  height: 100%;
+}
+.flipBox_box > div:nth-child(3) {
+  background-image: linear-gradient(green, white);
+  transform: rotateY(180deg) translateX(50%) rotateY(90deg);
+  height: 100%;
+}
+.flipBox_box > div:nth-child(4) {
+  background-image: linear-gradient(green, white);
+  transform: rotateY(270deg) translateX(50%) rotateY(90deg);
+  height: 100%;
+}
+.flipBox_box > div:nth-child(5) {
+  background-color: green;
+  transform: rotateX(90deg) translateY(-0.5em);
+  transform-origin: top;
+  height: 1em;
+}
+.flipBox_box > div:nth-child(5)::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #e0e0e0;
+  clip-path: polygon(
+    12.5% 56.25%,
+    25% 43.75%,
+    37.5% 56.25%,
+    75% 18.75%,
+    87.5% 31.25%,
+    37.5% 81.25%,
+    12.5% 56.25%
+  );
+}
+.flipBox_box > div:nth-child(6) {
+  bottom: 0;
+  background-color: #e0e0e0;
+  transform: rotateX(90deg) translateY(0.5em);
+  transform-origin: bottom;
+  height: 1em;
+}
+.flipBox_shadow {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1em;
+  height: 1em;
+  transform: translateY(-50%) translateZ(-1px);
+  background-color: #000 7;
+  filter: blur(0.2em);
+}
+@keyframes flipBox1 {
+  0%,
+  100% {
+    transform: rotateX(90deg);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: rotateX(90deg) translateY(2em);
+    animation-timing-function: ease-in;
+  }
+}
+@keyframes flipBox2 {
+  from {
+    transform: translate(-50%, -50%) rotateX(0deg) rotateY(180deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(-180deg) rotateY(0deg);
+  }
+}
+@keyframes flipBox3 {
+  0%,
+  100% {
+    transform: translateY(-50%) translateZ(-1px) scale(1);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateY(-50%) translateZ(-1px) scale(1.5);
+    animation-timing-function: ease-in;
+  }
+}
+@keyframes flipBox4 {
+  0%,
+  100% {
+    transform: rotateX(90deg);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: rotateX(90deg) translateY(2em);
+    animation-timing-function: ease-in;
+  }
+}
+@keyframes flipBox5 {
+  from {
+    transform: translate(-50%, -50%) rotateX(-180deg) rotateY(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(-360deg) rotateY(180deg);
+  }
+}
+@keyframes flipBox6 {
+  0%,
+  100% {
+    transform: translateY(-50%) translateZ(-1px) scale(1);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateY(-50%) translateZ(-1px) scale(1.5);
+    animation-timing-function: ease-in;
+  }
+}
+@media (prefers-reduced-motion) {
+  .flipBox_boxOuter,
+  .flipBox_box,
+  .flipBox_shadow {
+    animation-play-state: paused !important;
+  }
+  .flipBox_boxOuter {
+    transition: none;
+  }
+}
+
+.ms-options-wrap button {
+  max-width: 140px;
+}
+.ms-options {
+  min-height: 0px !important;
+}
+.multiselect-ui option {
+  cursor: pointer;
+}
+/* ++++++++++++++++++++++++++++++++++++++++ */
+/* CheckBox Design Ended */
+/* ++++++++++++++++++++++++++++++++++++++++ */
+
+/* ++++++++++++++++++++++++++++++++++++++++ */
+/* Badge Design Started */
+/* ++++++++++++++++++++++++++++++++++++++++ */
+table td span.not_appliable {
+  font-size: 8px;
+  display: inline-block;
+  background: blue;
+  width: 50px;
+  color: #fff;
+  font-weight: 700;
+}
+
+/*Badges*/
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.badge-pill {
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+}
+
+.badge-up {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+.badge-primary {
+  color: #fff;
+  background-color: #008cff;
+}
+
+.badge-secondary {
+  color: #fff;
+  background-color: #75808a;
+}
+
+.badge-success {
+  color: #fff;
+  background-color: #15ca20;
+}
+
+.badge-danger {
+  color: #fff;
+  background-color: #fd3550;
+}
+
+.badge-warning {
+  color: #fff;
+  background-color: #ff9700;
+}
+
+.badge-info {
+  color: #fff;
+  background-color: #0dceec;
+}
+
+.badge-light {
+  color: #212529;
+  background-color: #e9eaea;
+}
+
+.badge-dark {
+  color: #fff;
+  background-color: #223035;
+}
+
+.NotApplicable {
+  color: #fff;
+  background-color: #4793d6;
+}
+.Complied {
+  color: #fff;
+  background-color: #10a169;
+}
+.Expired {
+  color: #fff;
+  background-color: #eb0936;
+}
+.NotUpdate {
+  color: white;
+  background-color: #000;
+}
+.ExpiringSoon {
+  color: #000;
+  background-color: #ff9130;
+}
+
+/* ++++++++++++++++++++++++++++++++++++++++ */
+/* Badge Design Ended */
+/* ++++++++++++++++++++++++++++++++++++++++ */
+
+/* ++++++++++++++++++++++++++++++++++++++++ */
+/* Table Design Code Started  */
+/* ++++++++++++++++++++++++++++++++++++++++ */
+.table thead tr th{
+  color: white;
+  background-color: #6b696b;
+  font-weight: bold;
+  text-align: center;
+}
+.table thead tr{
+  background-color: #6b696b;
+}
+/* table td{
+  color: white;
+} */
+/* ++++++++++++++++++++++++++++++++++++++++ */
+/* Table Design Code Ended  */
+/* ++++++++++++++++++++++++++++++++++++++++ */
+/* custom date disable */
+.ui-datepicker td.ui-state-disabled > span {
+  background: #ff0000;
+  color: #fff;
+}
+
